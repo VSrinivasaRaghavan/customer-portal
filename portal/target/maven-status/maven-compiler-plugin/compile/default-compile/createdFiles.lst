@@ -1,6 +1,0 @@
-com\customer\portal\bean\CustomerDetailBean.class
-com\customer\portal\controller\CustomerPortalController.class
-com\customer\portal\entity\Account.class
-com\customer\portal\service\CustomerPortalService.class
-com\customer\portal\PortalApplication.class
-com\customer\portal\repository\AccountRepository.class
