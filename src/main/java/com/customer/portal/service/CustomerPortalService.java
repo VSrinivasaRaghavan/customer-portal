@@ -14,8 +14,15 @@ public class CustomerPortalService {
 	@Autowired
 	AccountRepository accountRepository;
 
-	public String createCustomerAccount(CustomerDetailBean customerDetailBean){
-		if(accountRepository.findById(customerDetailBean.getUserId()).isPresent())
+	/**
+	 * Create customer account if not exists
+	 *
+	 * @param customerDetailBean
+	 * @return
+	 */
+	public String createCustomerAccount(CustomerDetailBean customerDetailBean) {
+		if (accountRepository.findByUsernameOrEmail(customerDetailBean.getUsername(), customerDetailBean.getEmail())
+				.isPresent())
 			return "EXISTS";
 		Accounts accounts = new Accounts();
 		accounts.setUsername(customerDetailBean.getUsername());

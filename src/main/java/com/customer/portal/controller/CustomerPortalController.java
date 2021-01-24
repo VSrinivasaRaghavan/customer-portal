@@ -14,10 +14,15 @@ public class CustomerPortalController {
 	@Autowired
 	private CustomerPortalService customerPortalService;
 
+	/**
+	 * To create customer account
+	 *
+	 * @param customerDetailBean
+	 * @return
+	 */
 	@PostMapping("/create/account")
 	public ResponseEntity<String> createCustomerAccount(@RequestBody CustomerDetailBean customerDetailBean) {
 		return new ResponseEntity<String>(customerPortalService.createCustomerAccount(customerDetailBean),
-				HttpStatus.ACCEPTED);
+				HttpStatus.OK);
 	}
-
 }

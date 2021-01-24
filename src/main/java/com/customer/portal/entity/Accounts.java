@@ -3,6 +3,7 @@ package com.customer.portal.entity;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 @Table(name = "accounts")
 @NamedQuery(name="Accounts.findAll", query="SELECT n FROM Accounts n")
 public class Accounts {
