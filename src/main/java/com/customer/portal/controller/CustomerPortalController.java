@@ -20,6 +20,7 @@ public class CustomerPortalController {
 	 * @param customerDetailBean
 	 * @return
 	 */
+	@CrossOrigin
 	@PostMapping("/create/account")
 	public ResponseEntity<String> createCustomerAccount(@RequestBody CustomerDetailBean customerDetailBean) {
 		return new ResponseEntity<String>(customerPortalService.createCustomerAccount(customerDetailBean),
