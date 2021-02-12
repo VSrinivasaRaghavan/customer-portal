@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayDeque;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Queue;
 
 @Service
@@ -33,5 +34,23 @@ public class CustomerPortalService {
 		accounts.setCreatedOn(new Date());
 		accountRepository.save(accounts);
 		return "SUCCESS";
+	}
+
+	/**
+	 * Login customer account
+	 *
+	 * @param customerDetailBean
+	 * @return
+	 */
+	public String loginCustomerAccount(CustomerDetailBean customerDetailBean) {
+		Optional<Accounts> accounts = accountRepository
+				.findByUsernameOrEmail(customerDetailBean.getUsername(), customerDetailBean.getEmail());
+		if (accounts.isPresent()) {
+			if (accounts.get().getPassword().equals(customerDetailBean.getPassword()))
+				return "Success";
+			else
+				return "Wrong Username/Password combination";
+		}
+		return "Account does not exist";
 	}
 }

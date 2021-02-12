@@ -26,4 +26,17 @@ public class CustomerPortalController {
 		return new ResponseEntity<String>(customerPortalService.createCustomerAccount(customerDetailBean),
 				HttpStatus.OK);
 	}
+
+	/**
+	 * To create customer account
+	 *
+	 * @param customerDetailBean
+	 * @return
+	 */
+	@CrossOrigin
+	@PostMapping("/login/account")
+	public ResponseEntity<String> loginCustomerAccount(@RequestBody CustomerDetailBean customerDetailBean) {
+		return new ResponseEntity<String>(customerPortalService.loginCustomerAccount(customerDetailBean),
+				HttpStatus.OK);
+	}
 }
